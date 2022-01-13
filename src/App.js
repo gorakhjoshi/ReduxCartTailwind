@@ -1,10 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Cart from './components/Cart/Cart';
+import Layout from './components/Layout/Layout';
+import Products from './components/Shop/Products';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const showCart = useSelector((state) => state.ui.isCartVisible);
+
   return (
     <>
-      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
+      <Layout>
+        {showCart && <Cart />}
+        <Products />
+      </Layout>
     </>
   );
 }
